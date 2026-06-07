@@ -1,26 +1,229 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: hsl(220 45% 95.5%); 
+  --foreground: hsl(224 71.4% 4.1%);
+  
+  --card: rgba(243, 248, 255, 0.75); 
+  --card-foreground: hsl(224 71.4% 4.1%);
+  
+  --popover: hsl(220 40% 98%);
+  --popover-foreground: hsl(224 71.4% 4.1%);
+  
+  --primary: hsl(221.2 83.2% 53.3%); /* #2563eb */
+  --primary-foreground: hsl(210 40% 98%);
+  
+  --secondary: hsl(142.1 76.2% 36.3%); /* #16a34a */
+  --secondary-foreground: hsl(355.7 100% 97.3%);
+  
+  --muted: hsl(217 30% 92%);
+  --muted-foreground: hsl(215.4 16.3% 40%);
+  
+  --accent: hsl(217 30% 94%);
+  --accent-foreground: hsl(222.2 47.4% 11.2%);
+  
+  --destructive: hsl(0 84.2% 60.2%); /* #ef4444 */
+  --destructive-foreground: hsl(210 40% 98%);
+  
+  --border: rgba(59, 130, 246, 0.16); 
+  --input: rgba(59, 130, 246, 0.12);
+  --ring: hsl(221.2 83.2% 53.3%);
+  
+  --chart-1: hsl(221.2 83.2% 53.3%);
+  --chart-2: hsl(142.1 76.2% 36.3%);
+  --chart-3: hsl(47.9 95.8% 51.2%);
+  --chart-4: hsl(262.1 83.3% 57.8%);
+  --chart-5: hsl(24.6 95% 53.1%);
+  --radius: 1rem;
+  
+  --sidebar: rgba(245, 249, 255, 0.88);
+  --sidebar-foreground: hsl(224 71.4% 4.1%);
+  --sidebar-primary: hsl(221.2 83.2% 53.3%);
+  --sidebar-primary-foreground: hsl(210 40% 98%);
+  --sidebar-accent: rgba(59, 130, 246, 0.06);
+  --sidebar-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --sidebar-border: rgba(59, 130, 246, 0.12);
+  --sidebar-ring: hsl(221.2 83.2% 53.3%);
+}
+
+.dark {
+  --background: hsl(224 71.4% 4.1%);
+  --foreground: hsl(210 40% 98%);
+  
+  --card: rgba(15, 23, 42, 0.45);
+  --card-foreground: hsl(210 40% 98%);
+  
+  --popover: hsl(224 71.4% 4.1%);
+  --popover-foreground: hsl(210 40% 98%);
+  
+  --primary: hsl(210 40% 98%);
+  --primary-foreground: hsl(222.2 47.4% 11.2%);
+  
+  --secondary: hsl(222.2 47.4% 11.2%);
+  --secondary-foreground: hsl(210 40% 98%);
+  
+  --muted: hsl(223 47% 11%);
+  --muted-foreground: hsl(215.4 16.3% 62%);
+  
+  --accent: hsl(223 47% 11%);
+  --accent-foreground: hsl(210 40% 98%);
+  
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(210 40% 98%);
+  
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.07);
+  --ring: hsl(216 12.2% 83.9%);
+  
+  --chart-1: hsl(217.2 91.2% 59.8%);
+  --chart-2: hsl(142.1 70.6% 45.3%);
+  --chart-3: hsl(47.9 95.8% 51.2%);
+  --chart-4: hsl(262.1 83.3% 57.8%);
+  --chart-5: hsl(24.6 95% 53.1%);
+  
+  --sidebar: rgba(10, 15, 30, 0.6);
+  --sidebar-foreground: hsl(210 40% 98%);
+  --sidebar-primary: hsl(217.2 91.2% 59.8%);
+  --sidebar-primary-foreground: hsl(222.2 47.4% 11.2%);
+  --sidebar-accent: rgba(255, 255, 255, 0.04);
+  --sidebar-accent-foreground: hsl(210 40% 98%);
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+@layer base {
+  * {
+    @apply border-border/80 outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-medium antialiased;
+    background-image: radial-gradient(at 0% 0%, var(--background) 0, transparent 50%),
+                      radial-gradient(at 100% 100%, var(--background) 0, transparent 50%);
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Design Utilities */
+
+.glass-card {
+  @apply backdrop-blur-md bg-card border border-border/70 transition-all duration-300 rounded-2xl;
+  box-shadow: 0 8px 30px 0 rgba(59, 130, 246, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}
+
+.dark .glass-card {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-card:hover {
+  @apply border-border shadow-2xl;
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-slate-900 to-slate-500 bg-clip-text text-transparent dark:from-white dark:to-slate-400 font-bold;
+}
+
+.gradient-text-blue {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-bold;
+}
+
+.gradient-text-emerald {
+  @apply bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent font-bold;
+}
+
+.gradient-text-rose {
+  @apply bg-gradient-to-r from-rose-600 to-pink-600 dark:from-rose-400 dark:to-pink-400 bg-clip-text text-transparent font-bold;
+}
+
+.neon-glow-blue {
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+}
+
+.neon-glow-emerald {
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.35));
+}
+
+.neon-glow-rose {
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.35));
+}
+
+.neon-glow-amber {
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.35));
+}
+
+/* Drifting Auroras */
+@keyframes drift-slow-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, -80px) scale(1.2);
+  }
+}
+
+@keyframes drift-slow-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.15);
+  }
+  50% {
+    transform: translate(-50px, 60px) scale(0.9);
+  }
+}
+
+.animate-drift-1 {
+  animation: drift-slow-1 20s infinite ease-in-out;
+}
+
+.animate-drift-2 {
+  animation: drift-slow-2 25s infinite ease-in-out;
 }
