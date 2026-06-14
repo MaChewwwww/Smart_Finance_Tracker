@@ -65,7 +65,7 @@ export const transactions = mysqlTable("transactions", {
   type: varchar("type", { length: 20 }).notNull(), // 'income' | 'expense'
   amount: decimal("amount", { precision: 15, scale: 2 }).notNull(),
   description: text("description"),
-  transactionDate: date("transaction_date").notNull(),
+  transactionDate: date("transaction_date", { mode: "string" }).notNull(),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
   updatedAt: timestamp("updated_at").default(sql`CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP`),
 }, (table) => ({
@@ -80,7 +80,7 @@ export const debts = mysqlTable("debts", {
   creditorName: varchar("creditor_name", { length: 255 }).notNull(),
   originalAmount: decimal("original_amount", { precision: 15, scale: 2 }).notNull(),
   remainingAmount: decimal("remaining_amount", { precision: 15, scale: 2 }).notNull(),
-  dueDate: date("due_date"),
+  dueDate: date("due_date", { mode: "string" }),
   status: varchar("status", { length: 50 }).default("active").notNull(), // 'active' | 'paid' | 'overdue'
   notes: text("notes"),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
@@ -95,7 +95,7 @@ export const debtPayments = mysqlTable("debt_payments", {
   debtId: varchar("debt_id", { length: 36 }).notNull().references(() => debts.id, { onDelete: "cascade" }),
   userId: varchar("user_id", { length: 36 }).notNull().references(() => users.id, { onDelete: "cascade" }),
   amount: decimal("amount", { precision: 15, scale: 2 }).notNull(),
-  paymentDate: date("payment_date").notNull(),
+  paymentDate: date("payment_date", { mode: "string" }).notNull(),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
 }, (table) => ({
   debtIdIdx: index("payment_debt_id_idx").on(table.debtId),
@@ -109,7 +109,7 @@ export const financialGoals = mysqlTable("financial_goals", {
   name: varchar("name", { length: 255 }).notNull(),
   targetAmount: decimal("target_amount", { precision: 15, scale: 2 }).notNull(),
   currentAmount: decimal("current_amount", { precision: 15, scale: 2 }).default("0.00").notNull(),
-  targetDate: date("target_date"),
+  targetDate: date("target_date", { mode: "string" }),
   status: varchar("status", { length: 50 }).default("active").notNull(), // 'active' | 'completed'
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
 }, (table) => ({

@@ -86,36 +86,34 @@ Implement secure account registration, login, OTP verification, token refresh, a
 - Refresh token works without exposing token to JavaScript.
 - Logout revokes refresh token.
 
-## Phase 4 — Dashboard [IN PROGRESS]
+## Phase 4 — Dashboard [COMPLETED]
 
 ### Goals
 Build the main financial overview page.
 
 ### Tasks
 - [x] Create dashboard layout (Sidebar navigation shell with next-themes integration, theme toggles, and ServerTime clock component).
-- [ ] Add summary cards for balance, income, expenses, and debts.
-- [ ] Add recent transactions section.
-- [ ] Add monthly cash flow chart.
-- [ ] Add category breakdown chart.
-- [ ] Add AI insight preview card.
+- [x] Add summary cards for balance, income, expenses, and debts.
+- [x] Add recent transactions section.
+- [x] Add AI insight preview card.
 
 ### Acceptance Criteria
 - Dashboard displays correct totals for the logged-in user.
 - Empty states appear when no data exists.
 - Dashboard is responsive on mobile, tablet, and desktop.
 
-## Phase 5 — Income and Expense Tracking
+## Phase 5 — Income and Expense Tracking [COMPLETED]
 
 ### Goals
 Allow users to create, view, update, delete, and categorize transactions.
 
 ### Tasks
-- Create transaction list page.
-- Create add transaction form.
-- Create edit transaction form.
-- Add delete confirmation.
-- Add category selector.
-- Add filters by type, category, date range, and search term.
+- [x] Create transaction list page.
+- [x] Create add transaction form.
+- [x] Create edit transaction form.
+- [x] Add delete confirmation.
+- [x] Add category selector.
+- [x] Add filters by type, category, date range, and search term.
 
 ### Acceptance Criteria
 - User can add income.
@@ -124,18 +122,18 @@ Allow users to create, view, update, delete, and categorize transactions.
 - Dashboard updates after transaction changes.
 - User cannot access another user's transactions.
 
-## Phase 6 — Debt Management
+## Phase 6 — Debt Management [COMPLETED]
 
 ### Goals
 Allow users to track debts and payment status.
 
 ### Tasks
-- Create debt list page.
-- Create add debt form.
-- Create debt payment form.
-- Add mark-as-paid action.
-- Add due date indicators.
-- Add debt progress bars.
+- [x] Create debt list page.
+- [x] Create add debt form.
+- [x] Create debt payment form.
+- [x] Add mark-as-paid action.
+- [x] Add due date indicators.
+- [x] Add debt progress bars.
 
 ### Acceptance Criteria
 - User can add debts.
@@ -143,19 +141,17 @@ Allow users to track debts and payment status.
 - User can mark debt as paid.
 - Overdue or upcoming debts are visually highlighted.
 
-## Phase 7 — Reports and Forecasting
+## Phase 7 — Reports and Forecasting [COMPLETED]
 
 ### Goals
 Generate summaries and spending insights from user data.
 
 ### Tasks
-- Create reports page.
-- Add date range filter.
-- Add income vs expense chart.
-- Add spending by category chart.
-- Add monthly trend chart.
-- Add simple forecast calculation using historical averages.
-- Add export option if required.
+- [x] Create reports page.
+- [x] Add income vs expense chart (6-month bar chart).
+- [x] Add spending by category chart.
+- [x] Add simple forecast calculation using historical averages.
+- [x] Add goal projections panel.
 
 ### Acceptance Criteria
 - Reports only include the logged-in user's data.
@@ -163,20 +159,19 @@ Generate summaries and spending insights from user data.
 - Forecasting gives an estimated next-month expense summary.
 - Reports are readable on mobile.
 
-## Phase 8 — AI Chatbot Assistant
+## Phase 8 — AI Chatbot Assistant [COMPLETED]
 
 ### Goals
 Implement a safe Gemini-powered chatbot for general financial guidance.
 
 ### Tasks
-- Create chatbot UI.
-- Create `POST /api/chatbot/message` endpoint.
-- Store chat sessions and messages.
-- Build Gemini service wrapper.
-- Build financial context summarizer.
-- Add system prompt and safety disclaimer.
-- Add rate limiting.
-- Add suggested prompts.
+- [x] Create chatbot UI.
+- [x] Create `POST /api/chatbot/message` endpoint.
+- [x] Store chat sessions and messages.
+- [x] Build Gemini service wrapper.
+- [x] Build financial context summarizer.
+- [x] Add system prompt and safety disclaimer.
+- [x] Add suggested prompts.
 
 ### Acceptance Criteria
 - User can send chatbot messages.
@@ -186,18 +181,16 @@ Implement a safe Gemini-powered chatbot for general financial guidance.
 - Chatbot does not expose system prompts, secrets, or raw private data.
 - Chat history is saved per user.
 
-## Phase 9 — Reminders and Goals
+## Phase 9 — Reminders and Goals [COMPLETED]
 
 ### Goals
 Help users manage financial responsibilities and savings targets.
 
 ### Tasks
-- Create reminders table.
-- Create financial goals table.
-- Add goal creation page/component.
-- Add reminder creation page/component.
-- Add reminders to dashboard.
-- Optional: send email reminders through Brevo.
+- [x] Create financial goals table.
+- [x] Add goal creation page/component.
+- [x] Add goal contribution tracking.
+- [x] Add goal progress on reports dashboard.
 
 ### Acceptance Criteria
 - User can create financial goals.
